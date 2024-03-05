@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import data from './CollegeBasketballTeams.json';
 
 interface TeamProps {
   tid: number;
@@ -32,11 +33,11 @@ class Team extends React.Component<TeamProps> {
 }
 
 function NewList() {
-  const teams: TeamProps[] = require('./CollegeBasketballTeams.json');
+  const teams = data.teams;
   return (
     <div>
       {teams.map((singleTeam: TeamProps) => (
-        <Team key={singleTeam.tid} {...singleTeam} />
+        <Team {...singleTeam} />
       ))}
     </div>
   );
