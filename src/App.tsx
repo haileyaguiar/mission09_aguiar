@@ -20,13 +20,12 @@ class Team extends React.Component<TeamProps> {
   render() {
     const oneTeam = this.props;
     return (
-      <div>
+      <div className="card">
         <h2>{oneTeam.school}</h2>
         <h3>{oneTeam.name}</h3>
         <h3>
           {oneTeam.city}, {oneTeam.state}
         </h3>
-        <div />
       </div>
     );
   }
@@ -35,9 +34,9 @@ class Team extends React.Component<TeamProps> {
 function NewList() {
   const teams = data.teams;
   return (
-    <div>
+    <div className="card-container">
       {teams.map((singleTeam: TeamProps) => (
-        <Team {...singleTeam} />
+        <Team key={singleTeam.tid} {...singleTeam} />
       ))}
     </div>
   );
@@ -46,7 +45,7 @@ function NewList() {
 function App() {
   return (
     <div className="App">
-      <header>College Basketball Teams</header>
+      <header className="header">College Basketball Teams</header>
       <NewList />
     </div>
   );
